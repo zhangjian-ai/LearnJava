@@ -4,7 +4,7 @@ package com.zhangjian.核心概念.类和对象;
 public class ObjectThis {
     public static void main(String[] args) {
         /**
-         * Java 虚拟机为每个对象分配this，代表当前对象。同py中的self关键字，但 this 不会显式的写在方法的形参里面。
+         * Java 虚拟机为每个对象分配this，是当前对象的引用。同py中的self关键字，但 this 不会显式的写在方法的形参里面。
          *
          * 使用细节：
          * 1、this关键字可以用来访问本类的属性、方法、构造器；

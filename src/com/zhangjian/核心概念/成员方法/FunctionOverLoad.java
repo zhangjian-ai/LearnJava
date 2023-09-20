@@ -6,7 +6,7 @@ public class FunctionOverLoad {
          * 方法重载注意事项和使用细节：
          * 1、方法名：必须相同
          * 2、参数列表：必须不同（参数的 类型、个数、顺序 至少有一个不同，参数名称无要求）
-         * 3、返回值类型 无要求
+         * 3、返回类型 无要求
          */
 
         Methods methods = new Methods();
