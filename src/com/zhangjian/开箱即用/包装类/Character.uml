@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>java.lang.Character</OriginalElement>
+  <nodes>
+    <node x="114.25" y="80.0">java.lang.Character</node>
+    <node x="0.0" y="0.0">java.lang.Comparable</node>
+    <node x="198.0" y="0.0">java.io.Serializable</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="java.lang.Character" target="java.io.Serializable" relationship="REALIZATION">
+      <point x="32.5" y="-15.0" />
+      <point x="211.75" y="55.0" />
+      <point x="269.5" y="55.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="java.lang.Character" target="java.lang.Comparable" relationship="REALIZATION">
+      <point x="-32.5" y="-15.0" />
+      <point x="146.75" y="55.0" />
+      <point x="89.0" y="55.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic" zoom="1.0" showDependencies="false" x="170.5" y="55.0" />
+  <SelectedNodes>
+    <node>java.lang.Character</node>
+  </SelectedNodes>
+  <Categories />
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

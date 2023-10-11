@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>java.util.Date</OriginalElement>
+  <nodes>
+    <node x="361.0" y="0.0">java.lang.Cloneable</node>
+    <node x="294.75" y="80.0">java.util.Date</node>
+    <node x="512.0" y="0.0">java.lang.Object</node>
+    <node x="163.0" y="0.0">java.lang.Comparable</node>
+    <node x="0.0" y="0.0">java.io.Serializable</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="java.util.Date" target="java.lang.Cloneable" relationship="REALIZATION">
+      <point x="11.125" y="-15.0" />
+      <point x="350.375" y="50.0" />
+      <point x="426.5" y="50.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="java.util.Date" target="java.io.Serializable" relationship="REALIZATION">
+      <point x="-33.375" y="-15.0" />
+      <point x="305.875" y="60.0" />
+      <point x="71.5" y="60.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="java.util.Date" target="java.lang.Comparable" relationship="REALIZATION">
+      <point x="-11.125" y="-15.0" />
+      <point x="328.125" y="50.0" />
+      <point x="252.0" y="50.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="java.util.Date" target="java.lang.Object" relationship="GENERALIZATION">
+      <point x="33.375" y="-15.0" />
+      <point x="372.625" y="60.0" />
+      <point x="564.0" y="60.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic" zoom="0.9589334907090916" showDependencies="false" x="370.94679172707424" y="20.665709076066264" />
+  <SelectedNodes />
+  <Categories />
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
