@@ -1,50 +1,29 @@
 package com.zhangjian.多线程;
 
+import java.util.concurrent.*;
+
 public class MultiThread {
-    public static void main(String[] args) throws InterruptedException {
-        // 模拟死锁
-        Thread thread = new Thread(new DeadLock(true));
-        Thread thread2 = new Thread(new DeadLock(false));
 
-        thread.start();
-        thread2.start();
+    public static void main(String... args) throws InterruptedException, ExecutionException {
 
-        thread.join(2000);
+        ScheduledExecutorService scheduledThreadPool = Executors.newScheduledThreadPool(2);
 
-        // 查看状态。两个线程都处于阻塞状态
-        System.out.println(thread.getState()); // BLOCKED
-        System.out.println(thread2.getState()); // BLOCKED
+        // 就干调一下，延迟 3s 执行
+        scheduledThreadPool.schedule(new Task(), 3, TimeUnit.SECONDS);
 
+        // 周期执行。首次等待 5s，周期间隔 4s
+        scheduledThreadPool.scheduleWithFixedDelay(new Task(), 1, 4, TimeUnit.SECONDS);
+
+        Thread.sleep(10000);
+
+        scheduledThreadPool.shutdown();
+        System.out.println("结束咯~");
     }
 }
 
-
-class DeadLock implements Runnable {
-    static Object o1 = new Object();
-    static Object o2 = new Object();
-
-    private boolean flag;
-
-    public DeadLock(boolean flag) {
-        this.flag = flag;
-    }
-
+class Task implements Runnable{
     @Override
     public void run() {
-        if (flag) {
-            synchronized (o1) {
-                System.out.println(Thread.currentThread().getName() + " 获得 o1 的锁...");
-                synchronized (o2) {
-                    System.out.println(Thread.currentThread().getName() + " 获得 o2 的锁...");
-                }
-            }
-        } else {
-            synchronized (o2) {
-                System.out.println(Thread.currentThread().getName() + " 获得 o2 的锁...");
-                synchronized (o1) {
-                    System.out.println(Thread.currentThread().getName() + " 获得 o1 的锁...");
-                }
-            }
-        }
+        System.out.println(Thread.currentThread().getName() + " 执行了一下子~");
     }
 }

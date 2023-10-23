@@ -544,7 +544,7 @@ Java 中， `java.lang.annotation.Annotation` 接口代表了程序元素前面�
 
 - **Constructor**：构造器定义
 
-- **Field**：累的成员变量定义
+- **Field**：类的成员变量定义
 
 - **Method**：类的方法定义
 
