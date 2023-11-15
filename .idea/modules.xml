@@ -2,7 +2,12 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/JavaBase/JavaBase.iml" filepath="$PROJECT_DIR$/JavaBase/JavaBase.iml" />
       <module fileurl="file://$PROJECT_DIR$/LearnJava.iml" filepath="$PROJECT_DIR$/LearnJava.iml" />
+      <module fileurl="file://$PROJECT_DIR$/MavenProject/MavenProject.iml" filepath="$PROJECT_DIR$/MavenProject/MavenProject.iml" />
+      <module fileurl="file://$PROJECT_DIR$/oa-backend/oa-backend.iml" filepath="$PROJECT_DIR$/oa-backend/oa-backend.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring-mybatis/spring-mybatis.iml" filepath="$PROJECT_DIR$/spring-mybatis/spring-mybatis.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring-quick-start/spring-quick-start.iml" filepath="$PROJECT_DIR$/spring-quick-start/spring-quick-start.iml" />
     </modules>
   </component>
 </project>

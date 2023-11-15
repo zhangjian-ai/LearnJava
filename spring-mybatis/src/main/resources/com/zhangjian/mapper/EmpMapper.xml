@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace 和接口的全限定名一致 -->
+<mapper namespace="com.zhangjian.mapper.EmpMapper">
+    <update id="update2">
+        update emp
+        <set>
+            <if test="username != null">
+                username= #{username},
+            </if>
+            <if test="name != null">
+                name=#{name},
+            </if>
+            <if test="gender != null">
+                gender=#{gender},
+            </if>
+            <if test="image != null">
+                image=#{image},
+            </if>
+            <if test="job != null">
+                job= #{job},
+            </if>
+            <if test="deptId != null">
+                dept_id=#{deptId},
+            </if>
+            <if test="updateTime != null">
+                update_time=#{updateTime}
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+
+    <delete id="butchDelete">
+        delete
+        from emp
+        where id in
+        <!-- foreach 包裹的内容就是每次遍历出来的 item -->
+        <foreach collection="ids" item="id" separator="," open="(" close=")">
+            #{id}
+        </foreach>
+        ;
+    </delete>
+
+    <!--  定义公共的SQL片段  -->
+    <sql id="commonSelect">
+        select id, username, password, name, gender, image, job, entry_date, dept_id, create_time, update_time from emp
+    </sql>
+
+    <!--  通过 refid 使用事先定义好的SQL片段  -->
+    <select id="selectList" resultType="com.zhangjian.pojo.Emp">
+        <include refid="commonSelect"/>
+        <where>
+            <if test="name != null">
+                name like concat('%', #{name}, '%')
+            </if>
+            <if test="gender != null">
+                and gender = #{gender}
+            </if>
+            <if test="begin != null and end != null">
+                and entry_date between #{begin} and #{end}
+            </if>
+        </where>
+
+        order by update_time desc;
+    </select>
+</mapper>

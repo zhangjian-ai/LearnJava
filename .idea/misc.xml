@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/MavenProject/pom.xml" />
+        <option value="$PROJECT_DIR$/JavaBase/pom.xml" />
+        <option value="$PROJECT_DIR$/spring-quick-start/pom.xml" />
+        <option value="$PROJECT_DIR$/spring-mybatis/pom.xml" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/web-management/pom.xml" />
+        <option value="$PROJECT_DIR$/oa-backend/pom.xml" />
+      </list>
+    </option>
+  </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="corretto-11" project-jdk-type="JavaSDK">
-    <output url="file://$PROJECT_DIR$/out" />
+    <output url="file://$PROJECT_DIR$" />
   </component>
 </project>

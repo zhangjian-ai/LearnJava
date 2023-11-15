@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <!--  Maven 中的坐标是 资源的唯一标识，通过该坐标可以唯一定位资源位置 使用坐标来定义或引入项目中需要的依赖  -->
+    <!--  groupId  定义当前Maven项目隶属的组织名称（通常是域名反写，例如 com.baidu）  -->
+    <!--  artifactId  定义当前Maven项目名称（通常是模块名称）  -->
+    <!--  version  定义当前项目版本号  -->
+    <groupId>com.zhangjian</groupId>
+    <artifactId>MavenProject</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <properties>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>1.2.3</version>
+
+            <!-- maven认为，程序对外部的依赖会随着程序的所处阶段和应用场景而变化，所以maven中的依赖关系有作用域(scope)的限制。 -->
+            <!-- scope包含如下的取值：compile（编译范围）、provided（已提供范围）、runtime（运行时范围）、test（测试范围）、system（系统范围） -->
+            <!--  compile: 在 主程序（main文件夹）、测试程序（test文件夹内）、打包（将依赖打包到jar包中）范围生效。比如 log4j     -->
+            <!--  test: 在 测试程序（test文件夹内）范围生效。比如 junit     -->
+            <!--  provided: 在 主程序（main文件夹）、测试程序（test文件夹内）范围生效。比如 servlet-api    -->
+            <!--  runtime: 在 测试程序（test文件夹内）、打包（将依赖打包到jar包中）范围生效。比如 JDBC驱动   -->
+            <scope>test</scope>
+
+            <!-- 屏蔽依赖关系。
+            maven中，依赖是具有传递性的。比如 logback-classic 本身还依赖 slf4j-api，通常在当前项目就可以直接使用 slf4j-api。
+            如果有其他地方提供了这个依赖或者不想用本依赖的子依赖，就可以使用 exclusions 来排除多个依赖。
+            排除依赖不需要写版本号  -->
+<!--            <exclusions>-->
+<!--                <exclusion>-->
+<!--                    <groupId>org.slf4j</groupId>-->
+<!--                    <artifactId>slf4j-api</artifactId>-->
+<!--                </exclusion>-->
+<!--            </exclusions>-->
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+</project>

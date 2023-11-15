@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SuperMarket</title>
+</head>
+<body>
+<table>
+    <tr style="color: white; background: gray; text-align:center">
+        <th>字符集</th>
+        <th>定长</th>
+        <th>英文字节</th>
+        <th>中文字节</th>
+        <th>编码方式</th>
+        <th>说明</th>
+    </tr>
+    <tr>
+        <td>标准ASCII</td>
+        <td>是</td>
+        <td>1</td>
+        <td>-</td>
+        <td>单字节7位编码</td>
+        <td>用一个字节的低7位，共128个</td>
+    </tr>
+    <tr>
+        <td>扩展ASCII</td>
+        <td>是</td>
+        <td>1</td>
+        <td>-</td>
+        <td>单字节8位编码</td>
+        <td>ISO-8859-1(也称为Latin-1)，用于支持部分欧洲语言，共256个</td>
+    </tr>
+    <tr>
+        <td>GB2312</td>
+        <td>是</td>
+        <td>1</td>
+        <td>2</td>
+        <td>双字节编码</td>
+        <td>只表示简体中文，兼容 ASCII。早期标准，不推荐再使用</td>
+    </tr>
+    <tr>
+        <td>GBK</td>
+        <td>是</td>
+        <td>1</td>
+        <td>2</td>
+        <td>双字节编码</td>
+        <td>表示简体中文繁体中文，兼容GB2312，兼容 ASCII</td>
+    </tr>
+    <tr>
+        <td>GB18030</td>
+        <td>否</td>
+        <td>1</td>
+        <td>2</td>
+        <td>双字节编码</td>
+        <td>对GBK的扩展，表示多个民族语言。单字节编码和ASCII相同，双字节编码和GBK相同</td>
+    </tr>
+    <tr>
+        <td>Unicode</td>
+        <td>否</td>
+        <td>1</td>
+        <td>3</td>
+        <td>UTF-8</td>
+        <td>UTF-8兼容ASCII字符编码，对于ASCII字符只占一个字节，对于其他字符占用多个字节</td>
+    </tr>
+    <tr>
+        <td>Unicode</td>
+        <td>否</td>
+        <td>2</td>
+        <td>2/4</td>
+        <td>UTF-16</td>
+        <td>
+            Java和Windows XP/NT等内部使用UTF-16。
+            <span style="display: block">一个英文字母字符或一个汉字字符存储都需要2个字节，Unicode扩展区的一些汉字存储需要4个字节</span>
+        </td>
+    </tr>
+    <tr>
+        <td>Unicode</td>
+        <td>是</td>
+        <td>4</td>
+        <td>4</td>
+        <td>UTF-32</td>
+        <td>固定宽度编码，所有代码点占用四个字节。巨大的内存消耗，但是操作起来很快。</td>
+    </tr>
+</table>
+</body>
+</html>

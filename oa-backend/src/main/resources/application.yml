@@ -1,0 +1,27 @@
+spring:
+  # 数据库连接配置
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://172.16.20.64:3307/mybatis
+    username: root
+    password: mybatis123
+
+  # 文件上传文件大小配置
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 100MB
+
+# mybatis 日志输出及命名转换配置
+mybatis:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    map-underscore-to-camel-case: true
+
+# 阿里云OSS配置
+ali:
+  oss:
+    endpoint: oss-cn-chengdu.aliyuncs.com
+    bucket-name: oa-backend
+    access-key-id: LTAI5tLwceXsCyzpmLHv76xR
+    access-key-secret: 40OBM9Ry7ZRs6DKz9H7HLAYhsr6VLD
