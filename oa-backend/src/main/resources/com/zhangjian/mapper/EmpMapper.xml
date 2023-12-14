@@ -43,7 +43,7 @@
         </foreach>
     </delete>
 
-    <select id="select" resultType="com.zhangjian.po.EmpPO">
+    <select id="select" resultType="com.zhangjian.de.po.EmpPO">
         select *
         from emp
         <where>

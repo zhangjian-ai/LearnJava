@@ -1,6 +1,7 @@
 package com.zhangjian;
 
 import com.zhangjian.mapper.EmpMapper;
+import com.zhangjian.pojo.BuilderDemo;
 import com.zhangjian.pojo.Emp;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -86,5 +87,14 @@ class SpringMybatisApplicationTests {
         int butchDelete = empMapper.butchDelete(list);
 
         System.out.println("删除 " + butchDelete + " 条数据");
+    }
+
+    @Test
+    public void testBuilderDemo(){
+        BuilderDemo builderDemo = BuilderDemo.builder()
+                .name("王爷")
+                .age(32)
+                .build();
+        System.out.println(builderDemo);
     }
 }

@@ -253,13 +253,18 @@ Lombok是一个使用的Java类库，能通过注解的形式自动生成 构造
   </tr>
   <tr>
     <td>@NoArgsConstructor</td>
-    <td>为实体类创建一个无参构造器</td>
+    <td>为实体类创建一个无参构造器。access 属性可指定构造器的访问权限</td>
   </tr>
   <tr>
     <td>@AllArgsConstructor</td>
-    <td>为实体类创建一个除static修饰属性外，带有各参数的构造器</td>
+    <td>为实体类创建一个除static修饰属性外，带有各参数的构造器。access 属性可指定构造器的访问权限</td>
+  </tr>
+    <tr>
+    <td>@Builder</td>
+    <td>使被标记的类支持构造者模式</td>
   </tr>
 </table>
+
 
 
 
@@ -289,7 +294,7 @@ import lombok.*;
 //@ToString
 //@EqualsAndHashCode
 @Data
-@NoArgsConstructor
+@NoArgsConstructor // 这两个构造器默认访问修饰符为 public
 @AllArgsConstructor
 public class User {
     private int id;
@@ -299,6 +304,56 @@ public class User {
     private String phone;
 }
 ```
+
+
+
+这里演示一下使用@Builder创建支持构造者模式的类：
+
+```java
+package com.zhangjian.pojo;
+
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+
+/**
+ * 使用构造者模式，通常将外部类构造器私有化。是用户只能使用 builder 来创建实例
+ */
+@Builder
+@AllArgsConstructor(access = AccessLevel.PRIVATE)
+public class BuilderDemo {
+    // 属性用 final 修饰一下，不允许在初始化完成后进行修改
+    private final String name;
+    private final int age;
+    private final double salary;
+
+    @Override
+    public String toString() {
+        return "BuilderDemo{" +
+                "name='" + name + '\'' +
+                ", age=" + age +
+                ", salary=" + salary +
+                '}';
+    }
+}
+```
+
+
+
+测试代码：
+
+```java
+    @Test
+    public void testBuilderDemo(){
+        BuilderDemo builderDemo = BuilderDemo.builder()
+                .name("王爷")
+                .age(32)
+                .build();
+        System.out.println(builderDemo);
+    }
+```
+
+
 
 
 

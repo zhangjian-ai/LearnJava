@@ -4,11 +4,11 @@
 
 2. 反射机制允许程序在执行期间借助 Reflection API 获得任何 类 的内部信息（属性、构造器、成员方法），并能够操作对象的属性及方法。
 
-3. Java中一切皆对象。在发射机制中，这句话就有充分的体现。通过 new 关键字创建的实例，我们称之为对象。同样，我们在编码阶段定义的一切，比如：类、属性、构造器、方法 等等，本质上也都是 **某个类型** 的实例，这样的类型常用的有4个：
+3. Java中一切皆对象。在反射机制中，这句话就有充分的体现。通过 new 关键字创建的实例，我们称之为对象。同样，我们在编码阶段定义的一切，比如：类、属性、构造器、方法 等等，本质上也都是 **某个类型** 的实例，这样的类型常用的有4个：
     1. **Class**  表示 类 的类型，类加载后在堆中的对象就是一个 Class实例
-    1. **Method**  表示 方法 的类型，方法 就是一个 method实例
+    1. **Method**  表示 方法 的类型，方法 就是一个 Method实例
     1. **Field**  表示 属性 的类型，所有属性都是一个 Field实例
-    1. **Constructor**  表示 构造器 的类型，类中的构造器就是 constructor实例
+    1. **Constructor**  表示 构造器 的类型，类中的构造器就是 Constructor实例
 
 4. 反射在程序加载阶段就体现出来
 
@@ -51,13 +51,13 @@
 
     - **加载阶段 （Loading）**
 
-        JVM在该阶段主要是将字节码从不同的数据源（class文件/jar包/网络）转换为二进制字节流加载到内存中，并生成一个代表该类的 java.lang.Class 对象
+        JVM在该阶段主要是将字节码从不同的数据源（class文件/jar包/网络）转换为二进制字节流加载到内存中，并生成一个代表该类的 java.lang.Class 对象。这个过程由 ApplicationClassLoader 类加载器完成。
 
     - **连接阶段（Linking）**
         - 验证
             1. 目的是为了确保class文件中的字节流包含的信息符合当前虚拟机的要求，并且不会危害虚拟机自身的安全
             2. 验证内容包括：文件格式验证（是否以魔数开头 0x cafe babe 开头）、元数据验证、字节码验证、符号引用验证
-            3. 可以考虑使用 -Xverify:none 参数来关闭大部分的类验证措施，缩短压缩机类加载的时间
+            3. 可以考虑使用 -Xverify:none 参数来关闭大部分的类验证措施，缩短虚拟机类加载的时间
         - 准备
             1. JVM 在该阶段对静态变量分配内存并进行默认初始化（为属性赋予数据类型的默认值，比如 0、0L、null、false 等）。
             2. 如果是 实例属性 ，在本阶段不分配内存
@@ -74,7 +74,7 @@
 
 ### 双亲委派机制
 
-在类加载的 Loading 阶段，JVM 将编译后的 .class 文件读入内存的方法区中，并有 **类加载器（ClassLoader）** 在 堆中 创建一个代表某个类 java.lang.Class 对象。
+在类加载的 Loading 阶段，JVM 将编译后的 .class 文件读入内存的方法区中，并由 **类加载器（ClassLoader）** 在 堆中 创建一个代表某个类 java.lang.Class 对象。
 
 创建 Class 对象这里就涉及到一个概念，双亲委派机制。
 
@@ -185,7 +185,7 @@ public class Reflection {
         Field name = aClass.getDeclaredField(attr1Name); // getDeclaredField 可以获得所有访问修饰符的 Filed对象
 
         // 3.1 使用创建的实例输出属性信息
-        System.out.println(breed.get(instance)); // 表示从对象中回去该属性的值
+        System.out.println(breed.get(instance)); // 表示从对象中获去该属性的值
         // System.out.println(name.get(instance));  // 同样，对象中的私有属性不能直接访问
 
         // 3.2 更新属性值
@@ -198,7 +198,7 @@ public class Reflection {
 
         // 4.1 调用方法
         method1.invoke(instance); // 调用无参
-        System.out.println(method2.invoke(instance, 800));; // 调用 有参方法时，实参列表一次用逗号隔开传入即可
+        System.out.println(method2.invoke(instance, 800));; // 调用 有参方法时，实参列表依次用逗号隔开传入即可
 
     }
 }
@@ -214,9 +214,9 @@ public class Reflection {
 
     > 使用反射时，可以调用 反射对象 的 setAccessible 方法，设置为 true。
     >
-    > true：表示在使用对象时取消访问检查，可以略微提高发射的效率；
+    > true：表示在使用对象时取消访问检查，可以略微提高发射的效率，且会越过访问修饰符的访问限制
     >
-    > false：表示在使用对象时要执行访问检查
+    > false：表示在使用对象时要执行访问检查，访问修饰符生效
 
 
 
@@ -232,9 +232,9 @@ public class Reflection {
 
 1. Class 本身也是一个类，因此也继承 Object类
 
-2. Class 对象不是 new 出来的，而是在类加载时由系统创建的
+2. Class 对象不是 new 出来的，而是在类加载时由 类加载器 创建的
 
-3. 对于某个类的 Class对象，在内存中只有一份，因为类加载只会在首次创建对象时执行一次
+3. 对于某个类的 Class对象，在内存中只有一份
 
 4. 每个类的实例都会记得自己是由哪个 Class对象 所生成的
 
@@ -328,7 +328,7 @@ Class类对象获取方法主要有4种，另外有两种特殊类型的 Class�
 
 6. **基本数据类型的包装类通过 `.TYPE` 获取**
 
-    包装类可以使用 `.TYPE` 来获取 Class对象，不过通过这种方式获取到的是与基本数据类型相同的 Class对象。
+    包装类可以使用 `.TYPE` 来获取 对应基本数据类型的Class对象，通过这种方式获取到的是与基本数据类型相同的 Class对象。
 
     ```java
     System.out.println(Integer.TYPE); // int

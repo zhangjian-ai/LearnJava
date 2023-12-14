@@ -16,6 +16,9 @@ public class TestExtends {
         TestConstructor jack = new TestConstructor("Jack");
         TestConstructor john = new TestConstructor("John", 22);
 
+        // 子类类名也可直接调用父类的静态属性及方法
+        System.out.println(TestDetail.staticAttr);
+        TestDetail.staticMethod();
     }
 
 }

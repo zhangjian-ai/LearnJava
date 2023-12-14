@@ -15,11 +15,11 @@
         delete from dept where id = #{id}
     </delete>
 
-    <select id="list" resultType="com.zhangjian.po.DeptPO">
+    <select id="list" resultType="com.zhangjian.de.po.DeptPO">
         select id, name, create_time, update_time from dept
     </select>
 
-    <select id="selectById" resultType="com.zhangjian.po.DeptPO">
+    <select id="selectById" resultType="com.zhangjian.de.po.DeptPO">
         select id, name, create_time, update_time from dept where id = #{id}
     </select>
 </mapper>

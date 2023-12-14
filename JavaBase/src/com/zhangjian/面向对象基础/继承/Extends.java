@@ -13,7 +13,7 @@ package com.zhangjian.面向对象基础.继承;
  *  3、子类又叫 派生类
  *
  * 继承细节(在 子类.TestExtends 中用不同的方法演示每个细节)：
- *  1、子类会继承父类所有的 属性 和 方法，但访问时要受访问修饰符控制只能访问 public 和 protected 两种级别的属性和方法
+ *  1、子类会继承父类所有（静态、非静态）的 属性 和 方法，但访问时要受访问修饰符控制只能访问 public 和 protected 两种级别的属性和方法
  *  2、子类构造器中必须首先调用父类的构造器，完成父类的初始化，形式 super() [演示 ExtendsConstructor]
  *     2.1、在子类的构造器中，java会给子类每个构造器默认加上这一句，不用显式编写，当然前提是父类有默认构造器
  *     2.2、如果父类没有默认构造器，那么必须在子类的构造器中使用 super(参数列表) 指定父类具体的构造器完成对父类的初始化
@@ -33,6 +33,8 @@ public class Extends { // 光标停留在类名上时，使用 ctrl + h 可以�
     String attr3 = "DefaultAttr";
     private String attr4 = "PrivateAttr";
 
+    public static String staticAttr = "staticAttr";
+
     public void publicFunc(){
         System.out.println("publicFunc");
     }
@@ -47,6 +49,10 @@ public class Extends { // 光标停留在类名上时，使用 ctrl + h 可以�
 
     private void privateFunc(){
         System.out.println("privateFunc");
+    }
+
+    public static void staticMethod(){
+        System.out.println("静态方法");
     }
 
     // 为默认级别和private级别属性增加get和set方法
@@ -65,6 +71,7 @@ public class Extends { // 光标停留在类名上时，使用 ctrl + h 可以�
     public void setAttr4(String attr4) {
         this.attr4 = attr4;
     }
+
 
     // 为默认级别和private级别属性增加public访问入口
     public void callDefaultFunc(){

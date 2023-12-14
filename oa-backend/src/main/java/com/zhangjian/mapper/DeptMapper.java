@@ -1,6 +1,6 @@
 package com.zhangjian.mapper;
 
-import com.zhangjian.po.DeptPO;
+import com.zhangjian.de.po.DeptPO;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;

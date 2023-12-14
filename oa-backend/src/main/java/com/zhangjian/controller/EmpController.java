@@ -1,9 +1,10 @@
 package com.zhangjian.controller;
 
-import com.zhangjian.po.EmpPO;
+import com.zhangjian.aop.OperateLog;
+import com.zhangjian.de.po.EmpPO;
 import com.zhangjian.pojo.Result;
 import com.zhangjian.service.EmpService;
-import com.zhangjian.vo.EmpPageVO;
+import com.zhangjian.de.vo.EmpPageVO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -47,6 +48,7 @@ public class EmpController {
      * @param ids
      * @return
      */
+    @OperateLog
     @DeleteMapping("/{ids}") // 路径参数 多个id用 , 隔开。接收时可以转为 数组 或 集合
     public Result delete(@PathVariable List<Integer> ids){
         log.info("删除员工信息: " + ids);
@@ -59,6 +61,7 @@ public class EmpController {
      * @param emp
      * @return
      */
+    @OperateLog
     @PostMapping
     public Result add(@RequestBody EmpPO emp){
         log.info("新增员工: {}", emp);
@@ -84,6 +87,7 @@ public class EmpController {
      * @param empPO
      * @return
      */
+    @OperateLog
     @PutMapping
     public Result update(@RequestBody EmpPO empPO){
         log.info("更新员工信息");

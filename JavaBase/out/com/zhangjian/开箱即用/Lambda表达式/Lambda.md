@@ -108,7 +108,7 @@ public class Lambda {
         });
 
         // 1.2 上面 Lambda 表达式是程序员手动实现了抽象方法的处理方式；
-        //     而 方法引用则可以直接时候现有的方法，代替手动实现，在一些场景会更加简洁。要注意的是：引用方法参数列表和使用方给到的参数是否匹配
+        //     而 方法引用则可以直接时候现有的方法，代替手动实现，在一些场景会更加简洁。要注意的是：引用方法参数列表和使用方给到的参数 个数 和 类型都要 匹配
         list.forEach(System.out::println);
 
         // 2 静态方法同样适用
@@ -138,7 +138,7 @@ public class Lambda {
 }
 
 class Demo{
-    // 是同一个集合保存实例
+    // 使用一个集合保存实例
     public static ArrayList<Demo> names = new ArrayList<>();
 
     private String name;

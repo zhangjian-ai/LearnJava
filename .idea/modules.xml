@@ -5,8 +5,11 @@
       <module fileurl="file://$PROJECT_DIR$/JavaBase/JavaBase.iml" filepath="$PROJECT_DIR$/JavaBase/JavaBase.iml" />
       <module fileurl="file://$PROJECT_DIR$/LearnJava.iml" filepath="$PROJECT_DIR$/LearnJava.iml" />
       <module fileurl="file://$PROJECT_DIR$/MavenProject/MavenProject.iml" filepath="$PROJECT_DIR$/MavenProject/MavenProject.iml" />
+      <module fileurl="file://$PROJECT_DIR$/aliyun-oss-spring-boot-autoconfigure/aliyun-oss-spring-boot-autoconfigure.iml" filepath="$PROJECT_DIR$/aliyun-oss-spring-boot-autoconfigure/aliyun-oss-spring-boot-autoconfigure.iml" />
+      <module fileurl="file://$PROJECT_DIR$/aliyun-oss-spring-boot-starter/aliyun-oss-spring-boot-starter.iml" filepath="$PROJECT_DIR$/aliyun-oss-spring-boot-starter/aliyun-oss-spring-boot-starter.iml" />
       <module fileurl="file://$PROJECT_DIR$/oa-backend/oa-backend.iml" filepath="$PROJECT_DIR$/oa-backend/oa-backend.iml" />
       <module fileurl="file://$PROJECT_DIR$/spring-mybatis/spring-mybatis.iml" filepath="$PROJECT_DIR$/spring-mybatis/spring-mybatis.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring-mybatis-plus/spring-mybatis-plus.iml" filepath="$PROJECT_DIR$/spring-mybatis-plus/spring-mybatis-plus.iml" />
       <module fileurl="file://$PROJECT_DIR$/spring-quick-start/spring-quick-start.iml" filepath="$PROJECT_DIR$/spring-quick-start/spring-quick-start.iml" />
     </modules>
   </component>

@@ -1,6 +1,7 @@
 package com.zhangjian.controller;
 
-import com.zhangjian.po.DeptPO;
+import com.zhangjian.aop.OperateLog;
+import com.zhangjian.de.po.DeptPO;
 import com.zhangjian.pojo.Result;
 import com.zhangjian.service.DeptService;
 import lombok.extern.slf4j.Slf4j;
@@ -27,8 +28,9 @@ public class DeptController {
     /**
      * 根据部门ID删除部门
      */
+    @OperateLog
     @DeleteMapping("/{id}")
-    public Result delete(@PathVariable Integer id){
+    public Result delete(@PathVariable Integer id) throws Exception {
         log.info("删除部门 id={}", id);
         deptService.delete(id);
         return Result.success();
@@ -37,6 +39,7 @@ public class DeptController {
     /**
      * 新增部门
      */
+    @OperateLog
     @PostMapping
     public Result add(@RequestBody DeptPO deptPO){
         log.info("新增部门: {}", deptPO.getName());
@@ -46,6 +49,7 @@ public class DeptController {
     /**
      * 修改部门
      */
+    @OperateLog
     @PutMapping
     public Result update(@RequestBody DeptPO deptPO){
         log.info("修改部门信息，要修改的部门 id={}", deptPO.getId());

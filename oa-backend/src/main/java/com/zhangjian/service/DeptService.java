@@ -1,6 +1,6 @@
 package com.zhangjian.service;
 
-import com.zhangjian.po.DeptPO;
+import com.zhangjian.de.po.DeptPO;
 
 import java.util.List;
 
@@ -20,7 +20,7 @@ public interface DeptService {
     /**
      * 删除部门
      */
-    void delete(Integer id);
+    void delete(Integer id) throws Exception;
 
     /**
      * 新增部门

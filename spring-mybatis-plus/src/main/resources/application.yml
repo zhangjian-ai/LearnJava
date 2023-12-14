@@ -1,0 +1,37 @@
+spring:
+  # 数据库连接配置
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://172.16.20.64:3307/mybatis?rewriteBatchedStatements=true
+    username: root
+    password: mybatis123
+  mvc:
+    format:
+      date: yyyy-MM-dd
+
+# 配置事务日志等级为debug
+logging:
+  level:
+    org.springframework.jdbc.support.JdbcTransactionManager: debug
+
+# swagger 配置
+knife4j:
+  enable: true
+  openapi:
+    title: 用户管理接口文档
+    description: "用户管理接口文档"
+    email: 123@qq.com
+    concat: Seeker
+    url: https://www.baidu.com
+    version: v1.0.0
+    group:
+      default:
+        group-name: default
+        api-rule: package
+        api-rule-resources:
+          - com.zhangjian.controller
+
+# mp 配置
+mybatis-plus:
+  configuration:
+    default-enum-type-handler: com.baomidou.mybatisplus.core.handlers.MybatisEnumTypeHandler
