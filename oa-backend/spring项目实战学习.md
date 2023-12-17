@@ -269,9 +269,9 @@ public class UploadController {
     
     bucket: oa-backend
     
-    AccessKey ID: LTAI5tLwceXsCyzpmLHv76xR
+    AccessKey ID: LTAI5tLwceXsCyzpm*****
     
-    AccessKey Secret: 40OBM9Ry7ZRs6DKz9H7HLAYhsr6VLD
+    AccessKey Secret: 40OBM9Ry7ZRs6DKz9H7HLA*****
     ```
 
 2. 引入 Ali-OSS依赖到项目中
@@ -430,8 +430,8 @@ public String name; // 这就将配置文件中 username 的值，给到了属�
 # ali oss 配置
 ali.oss.endpoint=oss-cn-chengdu.aliyuncs.com
 ali.oss.bucket-name=oa-backend
-ali.oss.access-key-id=LTAI5tLwceXsCyzpmLHv76xR
-ali.oss.access-key-secret=40OBM9Ry7ZRs6DKz9H7HLAYhsr6VLD
+ali.oss.access-key-id=LTAI5tLwceXsCyzpm*****
+ali.oss.access-key-secret=40OBM9Ry7ZRs6DKz9H7HLA*****
 ```
 
 
@@ -488,8 +488,8 @@ ali:
   oss:
     endpoint: oss-cn-chengdu.aliyuncs.com
     bucket-name: oa-backend
-    access-key-id: LTAI5tLwceXsCyzpmLHv76xR
-    access-key-secret: 40OBM9Ry7ZRs6DKz9H7HLAYhsr6VLD
+    access-key-id: LTAI5tLwceXsCyzpm*****
+    access-key-secret: 40OBM9Ry7ZRs6DKz9H7HLAY*****
 ```
 
 

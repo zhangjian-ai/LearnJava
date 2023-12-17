@@ -23,8 +23,8 @@ ali:
   oss:
     endpoint: oss-cn-chengdu.aliyuncs.com
     bucket-name: oa-backend
-    access-key-id: LTAI5tLwceXsCyzpmLHv76xR
-    access-key-secret: 40OBM9Ry7ZRs6DKz9H7HLAYhsr6VLD
+    access-key-id: LTAI5tLwceXsCyzpm******
+    access-key-secret: 40OBM9Ry7ZRs6DKz9H7HLAY******
 
 # 配置事务日志等级为debug
 logging:
