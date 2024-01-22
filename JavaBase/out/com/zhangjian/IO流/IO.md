@@ -1098,7 +1098,7 @@ InputStreamReader 和 OutputStreamWriter ，分别 取用了 字节流基类（I
 
 1. InputStreamReader 是 Reader 的子类，可以将 InputStream 包装成 Reader
 2. OutputStreamWriter 是 Writer 的子类，可以将 OutputStream 包装成 Writer
-3. 当处理纯文本数据时，使用字符流的效率会更高，并且可以有效解决中文问题
+3. 档处理纯文本数据时，使用字符流的效率会更高，并且可以有效解决中文问题
 4. 转换流将 字节流 转成 字符流 之后，可以继续使用 缓冲字符流 进一步提高处理效率
 
 

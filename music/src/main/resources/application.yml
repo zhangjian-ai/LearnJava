@@ -2,18 +2,22 @@ spring:
   # 数据库连接配置
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://172.16.20.64:3307/mybatis?rewriteBatchedStatements=true
+    url: jdbc:mysql://172.16.20.64:3307/music?rewriteBatchedStatements=true&Timezone=Asia/shanghai&useSSl=false&characterEncoding=utf8
     username: root
     password: mybatis123
+    type: com.alibaba.druid.pool.DruidDataSource
   mvc:
     format:
       date: yyyy-MM-dd
-      
 
 # 配置事务日志等级为debug
 logging:
   level:
     org.springframework.jdbc.support.JdbcTransactionManager: debug
+
+server:
+  port: 8888
+
 
 # swagger 配置
 knife4j:
@@ -30,7 +34,8 @@ knife4j:
         group-name: default
         api-rule: package
         api-rule-resources:
-          - com.zhangjian.controller
+          - com.zhangjian.music.controller
+
 
 # mp 配置
 mybatis-plus:

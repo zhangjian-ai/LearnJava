@@ -10,6 +10,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="oa-backend" />
         <module name="aliyun-oss-spring-boot-starter" />
+        <module name="music" />
         <module name="MavenProject" />
         <module name="spring-quick-start" />
         <module name="aliyun-oss-spring-boot-autoconfigure" />
@@ -23,6 +24,7 @@
       <module name="JavaBase" target="11" />
       <module name="LearnJava" target="11" />
       <module name="MavenProject" target="11" />
+      <module name="music" target="11" />
       <module name="oa-backend" target="11" />
       <module name="spring-mybatis" target="11" />
       <module name="spring-mybatis-plus" target="11" />
