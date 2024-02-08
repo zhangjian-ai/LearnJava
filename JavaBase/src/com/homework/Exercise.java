@@ -1,8 +1,7 @@
 package com.homework;
 
 
-import java.util.*;
-
+import java.util.Arrays;
 
 class ListNode {
     int val;
@@ -14,32 +13,29 @@ class ListNode {
 }
 
 class Solution {
+
     public static void main(String[] args) {
         Solution solution = new Solution();
+        int[] nums = {3, 4, 5, 1, 2};
+//        int[] nums = {3,100,200,3};
+        System.out.println(solution.minNumberInRotateArray(nums));
     }
 
-    public ListNode EntryNodeOfLoop(ListNode pHead) {
-        ListNode fast, slow, virtual;
-        virtual = null;
-        slow = pHead;
-        fast = pHead.next;
+    public int minNumberInRotateArray(int[] nums) {
+        int start = 0, end = nums.length - 1, mid = (start + end) / 2;
 
-        while (fast != null && fast.next != null){
-            if (virtual != null){
-                if (virtual == slow){
-                    return virtual;
-                }
-                virtual = virtual.next;
-            }else {
-                if (fast == slow){
-                    virtual = pHead;
-                }
-                fast = fast.next.next;
+        while (start < end) {
+            if (nums[mid] > nums[end]) {
+                start = mid + 1;
+            } else if (nums[mid] < nums[end]) {
+                end = mid;
+            }else{
+                end --;
             }
 
-            slow = slow.next;
+            mid = (start + end) / 2;
         }
 
-        return null;
+        return nums[start];
     }
 }

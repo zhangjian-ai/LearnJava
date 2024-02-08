@@ -1,10 +1,13 @@
 package com.zhangjian.music.service.impl;
 
-import com.alibaba.fastjson.JSON;
+import cn.hutool.core.bean.BeanUtil;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.zhangjian.music.dao.SingerMapper;
+import com.zhangjian.music.dto.SingerDTO;
 import com.zhangjian.music.po.SingerPO;
 import com.zhangjian.music.service.SingerService;
+import com.zhangjian.music.vo.PageVO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
@@ -22,14 +25,14 @@ public class SingerServiceImpl extends ServiceImpl<SingerMapper, SingerPO> imple
     }
 
     @Override
-    public Boolean update(SingerPO singerPO) {
+    public SingerPO update(SingerPO singerPO) {
         // 先根据id查询歌手，如果有才修改
         SingerPO singer = getById(singerPO.getId());
 
         if (singer == null) throw new RuntimeException(String.format("无效id: %s", singerPO.getId()));
 
         // 更新数据
-        return lambdaUpdate()
+        boolean isUpdate = lambdaUpdate()
                 .eq(SingerPO::getId, singerPO.getId())
                 .set(singerPO.getName() != null, SingerPO::getName, singerPO.getName())
                 .set(singerPO.getGender() != null, SingerPO::getGender, singerPO.getGender())
@@ -38,13 +41,14 @@ public class SingerServiceImpl extends ServiceImpl<SingerMapper, SingerPO> imple
                 .set(singerPO.getLocation() != null, SingerPO::getLocation, singerPO.getLocation())
                 .set(singerPO.getIntroduction() != null, SingerPO::getIntroduction, singerPO.getIntroduction())
                 .update();
+
+        return isUpdate ? getById(singerPO.getId()) : null;
     }
 
     @Override
-    public Boolean deleteById(Integer id) {
+    public void deleteById(Integer id) {
         try {
             baseMapper.deleteById(id);
-            return true;
         } catch (Exception exception) {
             throw new RuntimeException("delete singer error: " + exception.getMessage());
         }
@@ -52,16 +56,27 @@ public class SingerServiceImpl extends ServiceImpl<SingerMapper, SingerPO> imple
 
     @Override
     public SingerPO selectById(Integer id) {
-        return null;
-    }
-
-    @Override
-    public List<SingerPO> selectAll() {
-        return null;
+        return getById(id);
     }
 
     @Override
     public List<SingerPO> selectByName(String name) {
-        return null;
+        return lambdaQuery()
+                .like(SingerPO::getName, name)
+                .list();
+    }
+
+    @Override
+    public PageVO<SingerPO> selectAll(SingerDTO singerDTO) {
+        SingerPO singerPO = BeanUtil.copyProperties(singerDTO, SingerPO.class);
+
+        Page<SingerPO> page = singerDTO.build(singerPO);
+
+        lambdaQuery()
+                .like(singerPO.getName() != null, SingerPO::getName, singerPO.getName())
+                .eq(singerPO.getGender() != null, SingerPO::getGender, singerPO.getGender())
+                .page(page);
+
+        return new PageVO<>(page.getPages(), page.getTotal(), page.getRecords());
     }
 }

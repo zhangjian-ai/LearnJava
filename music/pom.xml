@@ -23,6 +23,7 @@
 <!--            <artifactId>mybatis-spring-boot-starter</artifactId>-->
 <!--            <version>2.3.0</version>-->
 <!--        </dependency>-->
+        <!-- 杜鲁伊德数据库连接池 -->
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>druid</artifactId>
