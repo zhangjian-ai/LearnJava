@@ -24,6 +24,9 @@ import java.util.List;
 @Api(tags = "歌手管理")
 public class SingerController {
 
+    /**
+     * API文档 http://localhost:8888/doc.html#/home
+     */
     private final SingerService singerService;
 
     /**
@@ -107,7 +110,7 @@ public class SingerController {
      * 查询所有歌手信息
      */
     @GetMapping( "/select/all" )
-    @ApiOperation("分页查询所有歌手")
+    @ApiOperation("根据 歌手名和性别 分页查询所有歌手")
     public Result selectAllSinger(SingerDTO singerDTO) {
         PageVO<SingerPO> pageVO = singerService.selectAll(singerDTO);
 

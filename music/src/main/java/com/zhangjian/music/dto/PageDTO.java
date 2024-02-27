@@ -30,13 +30,4 @@ public class PageDTO {
     @ApiModelProperty("排序的字段")
     private String orderField;
 
-    public <T> Page<T> build(T o){
-        Page<T> page = Page.of(pageNo, pageSize);
-
-        if (order != Order.NON && orderField != null){
-            page.addOrder(new OrderItem(orderField, order == Order.ASC));
-        }
-
-        return page;
-    }
 }

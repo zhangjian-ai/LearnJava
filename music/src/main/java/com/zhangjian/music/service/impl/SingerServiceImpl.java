@@ -1,10 +1,12 @@
 package com.zhangjian.music.service.impl;
 
 import cn.hutool.core.bean.BeanUtil;
+import com.baomidou.mybatisplus.core.metadata.OrderItem;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.zhangjian.music.dao.SingerMapper;
 import com.zhangjian.music.dto.SingerDTO;
+import com.zhangjian.music.enums.Order;
 import com.zhangjian.music.po.SingerPO;
 import com.zhangjian.music.service.SingerService;
 import com.zhangjian.music.vo.PageVO;
@@ -68,13 +70,18 @@ public class SingerServiceImpl extends ServiceImpl<SingerMapper, SingerPO> imple
 
     @Override
     public PageVO<SingerPO> selectAll(SingerDTO singerDTO) {
-        SingerPO singerPO = BeanUtil.copyProperties(singerDTO, SingerPO.class);
+        // 分页
+        Page<SingerPO> page = Page.of(singerDTO.getPageNo(), singerDTO.getPageSize());
 
-        Page<SingerPO> page = singerDTO.build(singerPO);
+        // 排序
+        if (singerDTO.getOrder() != Order.NON && singerDTO.getOrderField() != null){
+            page.addOrder(new OrderItem(singerDTO.getOrderField(), singerDTO.getOrder() == Order.ASC));
+        }
 
+        // 根据歌手名字和性别查询歌手信息
         lambdaQuery()
-                .like(singerPO.getName() != null, SingerPO::getName, singerPO.getName())
-                .eq(singerPO.getGender() != null, SingerPO::getGender, singerPO.getGender())
+                .like(singerDTO.getName() != null, SingerPO::getName, singerDTO.getName())
+                .eq(singerDTO.getGender() != null, SingerPO::getGender, singerDTO.getGender())
                 .page(page);
 
         return new PageVO<>(page.getPages(), page.getTotal(), page.getRecords());

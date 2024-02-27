@@ -15,6 +15,7 @@ logging:
   level:
     org.springframework.jdbc.support.JdbcTransactionManager: debug
 
+
 server:
   port: 8888
 
@@ -36,8 +37,8 @@ knife4j:
         api-rule-resources:
           - com.zhangjian.music.controller
 
-
 # mp 配置
 mybatis-plus:
   configuration:
     default-enum-type-handler: com.baomidou.mybatisplus.core.handlers.MybatisEnumTypeHandler
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
