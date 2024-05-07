@@ -1,5 +1,6 @@
 package com.zhangjian.面向对象基础.封装;
 
+
 import org.jetbrains.annotations.NotNull;
 
 public class Encapsulation {
