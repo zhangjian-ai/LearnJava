@@ -15,7 +15,7 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @EqualsAndHashCode( callSuper = true )
 @ApiModel(description = "歌手表单实体")
-public class SingerDTO extends PageDTO {
+public class SingerDto extends PageDto {
 
     @ApiModelProperty("ID")
     private String id;

@@ -14,7 +14,7 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @NoArgsConstructor
 @TableName( value = "singer", autoResultMap = true )
-public class SingerPO {
+public class SingerPo {
 
     @TableId( type = IdType.AUTO )
     private Integer id;

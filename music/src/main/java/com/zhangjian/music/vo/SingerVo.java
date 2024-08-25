@@ -10,7 +10,7 @@ import java.time.LocalDate;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class SingerVO {
+public class SingerVo {
 
     private Integer id;
 

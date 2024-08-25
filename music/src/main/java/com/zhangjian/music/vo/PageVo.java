@@ -9,7 +9,7 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class PageVO<T> {
+public class PageVo<T> {
 
     private Long page;
 

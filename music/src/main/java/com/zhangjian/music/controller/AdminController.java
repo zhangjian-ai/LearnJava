@@ -1,14 +1,12 @@
 package com.zhangjian.music.controller;
 
-import com.zhangjian.music.dto.AdminDTO;
-import com.zhangjian.music.po.AdminPO;
+import com.zhangjian.music.dto.AdminDto;
 import com.zhangjian.music.service.AdminService;
 import com.zhangjian.music.utils.Result;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -28,7 +26,7 @@ public class AdminController {
      */
     @ApiOperation("管理员登录")
     @PostMapping("/login")
-    public Result login(@RequestBody AdminDTO adminDTO){
+    public Result login(@RequestBody AdminDto adminDTO){
 
         Boolean login = adminService.login(adminDTO.getName(), adminDTO.getPassword());
 

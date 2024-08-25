@@ -13,7 +13,7 @@ import lombok.AllArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @TableName(value = "admin", autoResultMap = true)
-public class AdminPO {
+public class AdminPo {
     /**
      * 管理员id
      */

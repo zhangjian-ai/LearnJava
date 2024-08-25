@@ -1,10 +1,10 @@
 package com.zhangjian.music.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.zhangjian.music.po.AdminPO;
+import com.zhangjian.music.po.AdminPo;
 
 
-public interface AdminService extends IService<AdminPO> {
+public interface AdminService extends IService<AdminPo> {
 
     /**
      * 登录接口

@@ -30,7 +30,7 @@ create table if not exists music.consumer
 create table if not exists music.song
 (
     id           int unsigned auto_increment primary key comment 'ID',
-    singer_id    int         not null comment '收个id',
+    singer_id    int         not null comment '歌手id',
     name         varchar(64) not null comment '名字',
     introduction char(255) comment '简介',
     create_time  datetime comment '创建时间',

@@ -15,7 +15,7 @@ import lombok.extern.slf4j.Slf4j;
 @NoArgsConstructor
 @AllArgsConstructor
 @ApiModel(description = "分页查询表单实体")
-public class PageDTO {
+public class PageDto {
 
     @ApiModelProperty("当前页码")
     private Integer pageNo;

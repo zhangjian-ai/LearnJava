@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @ApiModel( description = "管理员登录表单")
-public class AdminDTO {
+public class AdminDto {
 
     @ApiModelProperty("用户名")
     private String name;
