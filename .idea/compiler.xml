@@ -16,12 +16,14 @@
         <module name="aliyun-oss-spring-boot-autoconfigure" />
         <module name="spring-mybatis" />
         <module name="spring-mybatis-plus" />
+        <module name="jmeter_plugins" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="11">
       <module name="aliyun-oss-spring-boot-autoconfigure" target="11" />
       <module name="aliyun-oss-spring-boot-starter" target="11" />
       <module name="JavaBase" target="11" />
+      <module name="jmeter_plugins" target="1.8" />
       <module name="LearnJava" target="11" />
       <module name="MavenProject" target="11" />
       <module name="music" target="11" />

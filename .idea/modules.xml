@@ -7,6 +7,7 @@
       <module fileurl="file://$PROJECT_DIR$/MavenProject/MavenProject.iml" filepath="$PROJECT_DIR$/MavenProject/MavenProject.iml" />
       <module fileurl="file://$PROJECT_DIR$/aliyun-oss-spring-boot-autoconfigure/aliyun-oss-spring-boot-autoconfigure.iml" filepath="$PROJECT_DIR$/aliyun-oss-spring-boot-autoconfigure/aliyun-oss-spring-boot-autoconfigure.iml" />
       <module fileurl="file://$PROJECT_DIR$/aliyun-oss-spring-boot-starter/aliyun-oss-spring-boot-starter.iml" filepath="$PROJECT_DIR$/aliyun-oss-spring-boot-starter/aliyun-oss-spring-boot-starter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jmeter_plugins/jmeter_plugins.iml" filepath="$PROJECT_DIR$/jmeter_plugins/jmeter_plugins.iml" />
       <module fileurl="file://$PROJECT_DIR$/music/music.iml" filepath="$PROJECT_DIR$/music/music.iml" />
       <module fileurl="file://$PROJECT_DIR$/oa-backend/oa-backend.iml" filepath="$PROJECT_DIR$/oa-backend/oa-backend.iml" />
       <module fileurl="file://$PROJECT_DIR$/spring-mybatis/spring-mybatis.iml" filepath="$PROJECT_DIR$/spring-mybatis/spring-mybatis.iml" />
